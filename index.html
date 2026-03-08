@@ -622,22 +622,12 @@
 
       document.getElementById('contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        var form = this;
-        var data = new FormData(form);
-        fetch('https://formspree.io/f/admin@neonventures.biz', {
-          method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        }).then(function(response) {
-          if (response.ok) {
-            alert('Thank you for your message. We will be in touch soon.');
-            form.reset();
-          } else {
-            alert('Something went wrong. Please email us directly at admin@neonventures.biz.');
-          }
-        }).catch(function() {
-          alert('Something went wrong. Please email us directly at admin@neonventures.biz.');
-        });
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var subject = document.getElementById('subject').value || 'Website Inquiry';
+        var message = document.getElementById('message').value;
+        var body = 'Name: ' + name + '\nEmail: ' + email + '\n\n' + message;
+        window.location.href = 'mailto:admin@neonventures.biz?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
       });
     })();
   </script>

@@ -1,0 +1,16 @@
+# Design source files
+Neon Ventures.ai
+Neon Ventures.eps
+
+# Uncompressed backup
+terry-brockett-original.jpg
+
+# Unused images
+nbrh-final-logo.jpg
+benchmark-logo-rgb-color.png
+
+# macOS
+.DS_Store
+
+# Claude Code
+.claude/

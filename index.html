@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon Ventures | Flexible Capital. Focused Execution.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta name="description" content="Neon Ventures is a North Texas holding company that builds, acquires, and invests across real estate, operating businesses, startups, technology, and media.">
+  <link rel="icon" type="image/png" href="neon-ventures-a7.png">
+  <meta property="og:title" content="Neon Ventures | Flexible Capital. Focused Execution.">
+  <meta property="og:description" content="A North Texas holding company that builds, acquires, and invests across real estate, operating businesses, startups, technology, and media.">
+  <meta property="og:image" content="https://neonventures.biz/neon-ventures-a1.png">
+  <meta property="og:type" content="website">
+  <style>
+    :root {
+      --dark: #111111;
+      --dark-deep: #0A0A0A;
+      --dark-alt: #1A1A1A;
+      --dark-border: #2A2A2A;
+      --dark-border-subtle: #333333;
+      --orange: #E8891C;
+      --blue: #2B6CE6;
+      --light: #F5F3EF;
+      --white: #FFFFFF;
+      --text-muted: #A0A0A0;
+      --text-light: #4A4A4A;
+      --heading-dark: #E8E8E8;
+      --heading-light: #111111;
+      --icon-bg: #222222;
+      --icon-bg-light: #EDEDED;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text-muted); line-height: 1.6; overflow-x: hidden; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; }
+    a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
+    a:hover { color: var(--orange); }
+
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+
+    /* ----- NAVBAR ----- */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      padding: 10px 32px;
+      background: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      transition: box-shadow 0.2s ease;
+    }
+    .navbar.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
+    .navbar-brand img { height: 300px; width: auto; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 35px; }
+    .nav-links a { font-size: 14px; color: var(--text-muted); }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-toggle { display: none; width: 24px; height: 18px; flex-direction: column; justify-content: space-between; cursor: pointer; background: none; border: none; }
+    .nav-toggle span { display: block; height: 2px; background: var(--text-muted); }
+    .nav-toggle:hover span { background: var(--orange); }
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed; top: 120px; left: 0; right: 0; background: var(--dark);
+        flex-direction: column; padding: 24px; gap: 20px;
+        transform: translateY(-100%); opacity: 0; pointer-events: none; transition: transform 0.3s, opacity 0.3s;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      }
+      .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+      .nav-toggle { display: flex; }
+      .navbar-brand img { height: 60px; }
+    }
+
+    /* ----- HERO ----- */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background: var(--dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 140px 24px 32px;
+      text-align: center;
+    }
+    .hero-logo { width: 800px; max-width: 92vw; height: auto; }
+    .hero-desc { font-size: 17px; color: var(--text-muted); max-width: 600px; margin-top: 6px; line-height: 1.7; }
+    .scroll-indicator {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #555555;
+      animation: bounce 2s ease-in-out infinite;
+    }
+    .scroll-indicator svg { width: 28px; height: 28px; }
+    @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+
+    /* ----- SECTIONS ----- */
+    .section { padding: 90px 48px; }
+    .section-dark { background: var(--dark); }
+    .section-dark-deep { background: var(--dark-deep); }
+    .section-light { background: var(--light); }
+    .section-header { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 500; margin-bottom: 12px; }
+    .section-header.lg { font-size: 40px; }
+    .section-sub { font-size: 16px; margin-bottom: 40px; line-height: 1.6; }
+    .section-dark .section-header, .section-dark-deep .section-header { color: var(--heading-dark); }
+    .section-dark .section-sub, .section-dark-deep .section-sub { color: var(--text-muted); }
+    .section-light .section-header { color: var(--heading-light); }
+    .section-light .section-sub { color: var(--text-light); }
+    @media (max-width: 768px) { .section { padding: 60px 24px; } .section-header { font-size: 28px; } .section-header.lg { font-size: 32px; } }
+
+    /* ----- ABOUT ----- */
+    .about-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 55% 45%;
+      gap: 60px;
+      align-items: start;
+      text-align: left;
+    }
+    .about-bio { font-size: 16px; line-height: 1.8; color: var(--text-light); }
+    .about-bio p { margin-bottom: 20px; }
+    .about-bio a { color: var(--orange); text-decoration: underline; text-underline-offset: 2px; }
+    .about-bio a:hover { color: #d67a18; }
+    .about-right { display: flex; flex-direction: column; align-items: center; }
+    .about-photo {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 3px solid var(--orange);
+      margin-bottom: 28px;
+    }
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      width: 100%;
+      max-width: 400px;
+    }
+    .about-stat {
+      background: var(--white);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+    .about-stat .num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 500; color: var(--orange); margin-bottom: 4px; }
+    .about-stat .lbl { font-size: 13px; color: #777; }
+    @media (max-width: 1024px) {
+      .about-inner { grid-template-columns: 1fr; }
+      .about-right { order: -1; }
+    }
+
+    /* ----- CARDS DARK ----- */
+    .cards-grid { display: grid; gap: 24px; max-width: 1200px; margin: 0 auto; }
+    .cards-grid.col-2 { grid-template-columns: repeat(2, 1fr); }
+    .cards-grid.col-3 { grid-template-columns: repeat(3, 1fr); }
+    .card-dark {
+      background: var(--dark-alt);
+      border: 1px solid var(--dark-border);
+      border-left: 3px solid var(--orange);
+      padding: 30px;
+      border-radius: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .card-dark:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      border-radius: 50%;
+      background: var(--icon-bg);
+      border: 1px solid var(--dark-border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-icon svg { width: 24px; height: 24px; fill: #2A2A2A; }
+    .card-icon img { width: 100%; height: 100%; object-fit: contain; }
+    .card-dark .card-logo-right { flex-shrink: 0; margin-left: auto; align-self: center; }
+    .card-dark .card-logo-right a, .card-light .card-logo-right a { display: block; line-height: 0; }
+    .card-dark .card-logo-right img { height: 100px; width: auto; max-width: 160px; object-fit: contain; display: block; }
+    .card-dark .card-logo-right.card-logo-lg img { height: 156px; max-width: 250px; }
+    .card-dark .card-logo-right img.card-logo-white { filter: brightness(0) invert(1); }
+    .card-dark .card-logo-right img.card-logo-multiply { mix-blend-mode: multiply; }
+    .card-dark .card-logo-right img.card-logo-invert { filter: invert(1); }
+    .card-dark .card-logo-right img.card-logo-invert-lighten { filter: invert(1); mix-blend-mode: lighten; }
+    .card-dark .card-logo-right img.card-logo-light-gray { filter: grayscale(1) invert(1) brightness(0.75); mix-blend-mode: lighten; }
+    .card-body h3 { font-size: 20px; color: var(--heading-dark); margin-bottom: 10px; }
+    .card-body h3 a { color: inherit; }
+    .card-body h3 a:hover { color: var(--orange); }
+    .card-body p { font-size: 15px; color: var(--text-muted); line-height: 1.7; }
+    .card-body h3.no-link { font-weight: 500; }
+    .podcast-links { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .podcast-link-icon { display: inline-flex; color: var(--text-muted); transition: color 0.2s ease, transform 0.2s ease; }
+    .podcast-link-icon:hover { color: var(--orange); transform: scale(1.1); }
+    @media (max-width: 1024px) {
+      .cards-grid.col-2, .cards-grid.col-3 { grid-template-columns: 1fr; }
+    }
+
+    /* ----- CARDS LIGHT ----- */
+    .cards-narrow { max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .card-light {
+      background: var(--white);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      border-left: 3px solid var(--orange);
+    }
+    .card-light h3 { font-size: 20px; color: var(--heading-light); margin-bottom: 10px; }
+    .card-light h3 a { color: inherit; }
+    .card-light h3 a:hover { color: var(--orange); }
+    .card-light p { font-size: 15px; color: var(--text-light); line-height: 1.7; }
+    .card-light.card-with-logo { display: flex; flex-direction: column; align-items: center; gap: 0; }
+    .card-light.card-with-logo .card-logo-right { margin-left: 0; margin-bottom: 20px; }
+    .card-light.card-with-logo .card-logo-right + div { width: 100%; }
+    .card-light .card-logo-right img { height: 100px; width: auto; max-width: 160px; object-fit: contain; display: block; }
+    .card-light .card-logo-right img.card-logo-125 { height: 125px; max-width: 200px; }
+    @media (max-width: 600px) { .cards-narrow { grid-template-columns: 1fr; } }
+
+    /* ----- TIMELINE ----- */
+    .timeline { max-width: 700px; margin: 0 auto; padding-left: 24px; border-left: 2px solid var(--orange); }
+    .timeline-item { position: relative; padding-bottom: 60px; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -30px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+    .timeline-item .date { font-size: 14px; font-weight: 600; color: var(--orange); margin-bottom: 6px; }
+    .timeline-item .title { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--heading-light); margin-bottom: 8px; }
+    .timeline-item .desc { font-size: 15px; color: var(--text-light); line-height: 1.7; }
+
+    /* ----- CONTACT ----- */
+    .contact-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .contact-intro { font-size: 16px; color: var(--text-muted); margin-bottom: 28px; line-height: 1.7; }
+    .contact-details p { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; font-size: 15px; color: var(--text-muted); }
+    .contact-details a { color: var(--orange); }
+    .contact-details a:hover { color: #d67a18; }
+    .contact-details .ico { width: 20px; height: 20px; flex-shrink: 0; }
+    .contact-details .ico svg { width: 100%; height: 100%; fill: var(--orange); }
+    .contact-form label { display: block; font-size: 13px; color: var(--text-muted); margin-bottom: 6px; }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 16px;
+      background: var(--dark-alt);
+      border: 1px solid var(--dark-border);
+      border-radius: 6px;
+      color: var(--heading-dark);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+    }
+    .contact-form input::placeholder, .contact-form textarea::placeholder { color: #666; }
+    .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--orange); }
+    .contact-form textarea { min-height: 120px; resize: vertical; }
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--orange);
+      color: var(--dark);
+      font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .btn-submit:hover { background: #d67a18; }
+    @media (max-width: 768px) { .contact-inner { grid-template-columns: 1fr; } }
+
+    /* ----- FOOTER ----- */
+    .footer { background: var(--dark-deep); padding: 40px 24px; text-align: center; }
+    .footer p { font-size: 14px; color: #666; }
+    .footer .address { font-size: 13px; color: #444; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <a href="#hero" class="navbar-brand">
+      <img src="neon-ventures-a7.png" alt="Neon Ventures">
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#hero">Home</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <section id="hero" class="hero">
+    <img src="neon-ventures-a1.png" alt="Neon Ventures" class="hero-logo">
+    <p class="hero-desc">A North Texas holding company that builds, acquires, and invests across a wide range of real estate asset classes, operating businesses, startups, technology, and media.</p>
+    <div class="scroll-indicator">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+    </div>
+  </section>
+
+  <section id="about" class="section section-light">
+    <div class="about-inner">
+      <div class="about-bio">
+        <p class="section-label">About</p>
+        <h2 class="section-header lg" style="color: var(--heading-light);">Built on Grit, Driven by Results</h2>
+        <p>Neon Ventures is led by Terry Brockett, a seasoned entrepreneur, CRE investor, and business operator based in the Dallas-Fort Worth Metroplex. With a career spanning over two decades of building, scaling, and investing, Terry brings a rare blend of operational depth and investment acumen to every engagement.</p>
+        <p>Terry learned business from the shop floor. Growing up at Starlite Sign in Denton, Texas, his father put him to work early and instilled the work ethic that would define his career. Terry learned manufacturing, purchasing, sales, and operations not from a textbook, but from doing the work. He went on to purchase the company and lead its growth from $6 million to $55 million in revenue before selling a majority stake to private equity in 2016, staying on as CEO to guide the business through the transition.</p>
+        <p>That experience became the blueprint for everything that followed.</p>
+        <p>In 2019, Terry founded Neon Ventures to pursue what he does best: identify opportunity, deploy capital, and build. Today the portfolio spans multiple industries and asset classes. <a href="https://northbridge.inc" target="_blank" rel="noopener noreferrer">NorthBridge Realty Holdings</a> and <a href="https://www.linkedin.com/company/111873013" target="_blank" rel="noopener noreferrer">Brockland Properties</a> focus on commercial real estate development in the DFW metroplex. <a href="https://benchmarkequip.com" target="_blank" rel="noopener noreferrer">Benchmark Equipment</a> serves the equipment rental market. <a href="https://yellowdoorstorage.com" target="_blank" rel="noopener noreferrer">Yellow Door Storage</a> and <a href="https://drydockboatrv.com" target="_blank" rel="noopener noreferrer">Dry Dock & Lock</a> operate in the self-storage sector. RelayHub is his AI software venture, and he co-hosts the <a href="https://weeksahead.ai" target="_blank" rel="noopener noreferrer">Weeks Ahead AI</a> podcast, exploring how artificial intelligence is reshaping business. Strategic investments include <a href="https://anasova.com" target="_blank" rel="noopener noreferrer">Anasova</a>, <a href="https://vooks.com" target="_blank" rel="noopener noreferrer">Vooks</a>, <a href="https://lium.ai" target="_blank" rel="noopener noreferrer">Lium</a>, and <a href="https://amnat.com" target="_blank" rel="noopener noreferrer">American National Bank & Trust</a>.</p>
+        <p>Terry is also an active investor in commercial real estate, equities, options, and private debt. He advises business owners through leadership training and coaching, drawing on decades of experience scaling operations, navigating transactions, and building teams that perform.</p>
+        <p>He serves on the Board of Directors of <a href="https://amnat.com" target="_blank" rel="noopener noreferrer">American National Bank & Trust</a> and is a member of the <a href="https://aubreyisd.net" target="_blank" rel="noopener noreferrer">Aubrey ISD Board of Trustees</a>. He previously served on the Board of the Texas Sign Association and was its President from 2009 to 2010.</p>
+        <p>Terry holds a BBA in Marketing from the <a href="https://www.unt.edu" target="_blank" rel="noopener noreferrer">University of North Texas</a>. He lives in Aubrey, Texas, with his wife and younger daughter, who attends <a href="https://www.prestonwoodchristian.org" target="_blank" rel="noopener noreferrer">Prestonwood Christian Academy</a>. His older daughter is a student at <a href="https://www.baylor.edu" target="_blank" rel="noopener noreferrer">Baylor University</a>.</p>
+      </div>
+      <div class="about-right">
+        <img src="terry-brockett.jpg" alt="Terry Brockett" class="about-photo">
+        <div class="about-stats">
+          <div class="about-stat"><div class="num">30+</div><div class="lbl">Years in Business</div></div>
+          <div class="about-stat"><div class="num">$55M</div><div class="lbl">Firm Led as CEO</div></div>
+          <div class="about-stat"><div class="num">8X</div><div class="lbl">Revenue Growth Achieved</div></div>
+          <div class="about-stat"><div class="num">8</div><div class="lbl">Operating Companies</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="section section-dark">
+    <p class="section-label">Our Portfolio</p>
+    <h2 class="section-header">Operating Companies</h2>
+    <p class="section-sub">Businesses we actively build and operate.</p>
+    <div class="cards-grid col-2">
+      <div class="card-dark">
+        <div class="card-body">
+          <h3><a href="https://northbridge.inc" target="_blank" rel="noopener noreferrer">NorthBridge Realty Holdings</a></h3>
+          <p>Commercial real estate investment and development firm based in Denton, TX. Focused on self-storage, RV/boat storage, medical office, and flex industrial spaces, targeting equity opportunities in the $5M to $50M range.</p>
+        </div>
+        <div class="card-logo-right">
+          <a href="https://northbridge.inc" target="_blank" rel="noopener noreferrer"><img src="nb-white-logo.png" alt="NorthBridge Realty Holdings"></a>
+        </div>
+      </div>
+      <div class="card-dark">
+        <div class="card-body">
+          <h3><a href="https://northbridge.inc/management-services/" target="_blank" rel="noopener noreferrer">NorthBridge Management</a></h3>
+          <p>Full-service property management, consulting, and investment firm serving the DFW Metroplex. Provides leasing, management, and brokerage services for commercial properties throughout North Texas.</p>
+        </div>
+        <div class="card-logo-right">
+          <a href="https://northbridge.inc/management-services/" target="_blank" rel="noopener noreferrer"><img src="nb-white-logo.png" alt="NorthBridge Management"></a>
+        </div>
+      </div>
+      <div class="card-dark">
+        <div class="card-body">
+          <h3><a href="https://yellowdoorstorage.com" target="_blank" rel="noopener noreferrer">Yellow Door Storage</a></h3>
+          <p>Self-storage brand with locations across North Texas including Argyle, Denton, Oak Point, Lantana, and Van Alstyne. Offers climate-controlled units, drive-up access, and RV/boat parking with best-in-class customer service.</p>
+        </div>
+        <div class="card-logo-right">
+          <a href="https://yellowdoorstorage.com" target="_blank" rel="noopener noreferrer"><img src="yellow-door-logo-white-letters.png" alt="Yellow Door Storage"></a>
+        </div>
+      </div>
+      <div class="card-dark">
+        <div class="card-body">
+          <h3><a href="https://drydockboatrv.com" target="_blank" rel="noopener noreferrer">Dry Dock & Lock</a></h3>
+          <p>Boat and RV storage with locations across Texas including Canyon Lake, Pilot Point, Granbury, Possum Kingdom Lake, Krum, Crowley, and Waxahachie. Secure enclosed and covered storage with 24/7 gated access.</p>
+        </div>
+        <div class="card-logo-right">
+          <a href="https://drydockboatrv.com" target="_blank" rel="noopener noreferrer"><img src="dry-dock-lock-logo-brs-color.png" alt="Dry Dock & Lock"></a>
+        </div>
+      </div>
+      <div class="card-dark">
+        <div class="card-body">
+          <h3 class="no-link">Brockland Properties</h3>
+          <p>A partnership between Terry Brockett and Everette Newland, an industry veteran and land broker in North Texas. Formed to invest and develop small bay light industrial real estate across the DFW market.</p>
+        </div>
+        <div class="card-logo-right card-logo-lg">
+          <img src="brockland-properties-logo-final.png" alt="Brockland Properties">
+        </div>
+      </div>
+      <div class="card-dark">
+        <div class="card-body">
+          <h3><a href="https://benchmarkequip.com" target="_blank" rel="noopener noreferrer">Benchmark Equipment</a></h3>
+          <p>Professional equipment rental and sales based in Denton, TX. Excavators, loaders, skid steers, water trucks, and more. Driven by relationships and powered by reliability for contractors and construction professionals.</p>
+        </div>
+        <div class="card-logo-right">
+          <a href="https://benchmarkequip.com" target="_blank" rel="noopener noreferrer"><img src="benchmark-logo-rgb-color-reverse.png" alt="Benchmark Equipment"></a>
+        </div>
+      </div>
+      <div class="card-dark">
+        <div class="card-body">
+          <h3 class="no-link">RelayHub</h3>
+          <p>AI-powered software platform for real-time business communication and customer engagement. Currently in development. Launching soon.</p>
+        </div>
+        <div class="card-logo-right">
+          <img src="relay-hub-branding-reversed.png" alt="Relay Hub">
+        </div>
+      </div>
+      <div class="card-dark">
+        <div class="card-body">
+          <h3><a href="https://weeksahead.ai" target="_blank" rel="noopener noreferrer">Weeks Ahead AI</a></h3>
+          <p>AI-focused podcast and content platform. Through real-world experiments, open conversations, and a podcast that doesn't take itself too seriously, we show how everyday business operators can use AI to get weeks ahead of the competition.</p>
+          <div class="podcast-links" style="margin-top: 12px; margin-bottom: 0;">
+          <a href="https://podcasts.apple.com/us/podcast/weeks-ahead-ai/id1831122696" target="_blank" rel="noopener noreferrer" aria-label="Listen on Apple Podcasts" class="podcast-link-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          </a>
+          <a href="https://open.spotify.com/show/4T69N0FqA46m4SlNnvVf8m" target="_blank" rel="noopener noreferrer" aria-label="Listen on Spotify" class="podcast-link-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+          </a>
+          <a href="https://youtube.com/@WeeksAheadAI" target="_blank" rel="noopener noreferrer" aria-label="Watch on YouTube" class="podcast-link-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+        </div>
+        <div class="card-logo-right">
+          <a href="https://weeksahead.ai" target="_blank" rel="noopener noreferrer"><img src="weeks-ahead-ai.jpeg" alt="Weeks Ahead AI"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <p class="section-label">Leadership</p>
+    <h2 class="section-header">Board Positions</h2>
+    <div class="cards-narrow">
+      <div class="card-light card-with-logo">
+        <div class="card-logo-right">
+          <a href="https://aubreyisd.net" target="_blank" rel="noopener noreferrer"><img src="aisd-badge-white-bg.png" alt="Aubrey ISD"></a>
+        </div>
+        <div>
+          <h3><a href="https://aubreyisd.net" target="_blank" rel="noopener noreferrer">Aubrey ISD Board of Trustees</a></h3>
+          <p>Elected to the Board of Trustees in May 2021 (Place 3). Aubrey ISD is one of the fastest-growing school districts in North Texas and a member of the state's Fast Growth School Coalition, serving nearly 4,900 students across seven campuses in Aubrey, Providence Village, Krugerville, and Cross Roads. Since joining the board, district enrollment has grown nearly 60%, from approximately 3,100 to 4,900 students. Helped oversee the passage and execution of a $385.9 million bond program funding three new elementary schools, a second middle school, high school expansions, and district-wide facility improvements. Enrollment is projected to reach 8,900 by 2032.</p>
+        </div>
+      </div>
+      <div class="card-light card-with-logo">
+        <div class="card-logo-right">
+          <a href="https://amnat.com" target="_blank" rel="noopener noreferrer"><img src="anbt-logo.png" alt="American National Bank & Trust" class="card-logo-125"></a>
+        </div>
+        <div>
+          <h3><a href="https://amnat.com" target="_blank" rel="noopener noreferrer">American National Bank & Trust</a></h3>
+          <p>Board of Directors. Independently owned community bank headquartered in Wichita Falls with over $2.4 billion in assets, 300+ employees, and 12 branches across North Texas including Dallas, Fort Worth, Denton, and Flower Mound. A preferred SBA lender with full mortgage, title, brokerage, and leasing divisions. The bank's trust and wealth management group manages over $3 billion in assets, ranking among the top 15 trust organizations in Texas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark-deep">
+    <p class="section-label">Investments</p>
+    <h2 class="section-header">Strategic Investments</h2>
+    <p class="section-sub">Companies and funds we believe in.</p>
+    <div class="cards-grid col-3">
+      <div class="card-dark">
+        <div class="card-body">
+          <h3><a href="https://amnat.com" target="_blank" rel="noopener noreferrer">American National Bank & Trust</a></h3>
+          <p>Community bank serving North Texas with commercial lending, trust services, and mortgage financing. Investor and board member.</p>
+        </div>
+        <div class="card-logo-right">
+          <a href="https://amnat.com" target="_blank" rel="noopener noreferrer"><img src="anbt-logo.png" alt="American National Bank & Trust" class="card-logo-white"></a>
+        </div>
+      </div>
+      <div class="card-dark">
+        <div class="card-body">
+          <h3><a href="https://lium.ai" target="_blank" rel="noopener noreferrer">Lium AI</a></h3>
+          <p>Sensor-to-sentence AI platform that transforms high-dimensional data into conversational investigations, enabling teams to explore the physical world more dynamically than ever before.</p>
+        </div>
+        <div class="card-logo-right">
+          <a href="https://lium.ai" target="_blank" rel="noopener noreferrer"><img src="liumai-logo.jpeg" alt="Lium AI" class="card-logo-invert"></a>
+        </div>
+      </div>
+      <div class="card-dark">
+        <div class="card-body">
+          <h3><a href="https://anasova.com" target="_blank" rel="noopener noreferrer">Anasova</a></h3>
+          <p>Lead generation and financial planning platform for financial services companies. Connecting advisors with pre-qualified prospects through AI-powered engagement.</p>
+        </div>
+        <div class="card-logo-right">
+          <a href="https://anasova.com" target="_blank" rel="noopener noreferrer"><img src="anasova-logo.avif" alt="Anasova" class="card-logo-white"></a>
+        </div>
+      </div>
+      <div class="card-dark">
+        <div class="card-body">
+          <h3><a href="https://vooks.com" target="_blank" rel="noopener noreferrer">Vooks</a></h3>
+          <p>Ad-free children's streaming platform of animated read-aloud storybooks. Trusted by over 1.6 million parents and educators worldwide. Turning screen time into storytime.</p>
+        </div>
+        <div class="card-logo-right">
+          <a href="https://vooks.com" target="_blank" rel="noopener noreferrer"><img src="vooks-logo.jpeg" alt="Vooks"></a>
+        </div>
+      </div>
+      <div class="card-dark">
+        <div class="card-body">
+          <h3><a href="https://www.newfounding.com/venture" target="_blank" rel="noopener noreferrer">New Founding Venture Fund</a></h3>
+          <p>Early-stage venture fund investing in category-creating companies positioned to seize opportunities emerging from deregulation and the shift toward local and national self-determination.</p>
+        </div>
+        <div class="card-logo-right">
+          <a href="https://www.newfounding.com/venture" target="_blank" rel="noopener noreferrer"><img src="newfounding-logo.png" alt="New Founding"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <p class="section-label">Track Record</p>
+    <h2 class="section-header">A Career of Building & Investing</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="date">Early Career to 2016</div>
+        <div class="title">Owner & Operator, Starlite Sign</div>
+        <div class="desc">Purchased the family business and grew annual revenue from $6M to $55M through relentless operational focus and strategic reinvestment. Built one of the largest sign companies in Texas.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="date">2016 to 2019</div>
+        <div class="title">CEO, $55M Manufacturing Firm</div>
+        <div class="desc">Led a multi-location sign manufacturing company across Texas, Illinois, and Wisconsin following a private equity merger. Managed complex integration and continued growth across multiple markets.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="date">2019 to Present</div>
+        <div class="title">Founder, Neon Ventures</div>
+        <div class="desc">Founded a diversified holding company with active positions across commercial real estate, self-storage, equipment rental, AI software, and media. Deploying capital across multiple sectors in North Texas and beyond.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="date">Present</div>
+        <div class="title">Principal, NorthBridge</div>
+        <div class="desc">Active role in a leading DFW-based commercial real estate investment, development, and property management firm. Focused on self-storage, flex industrial, and medical office opportunities.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="date">2006 to Present</div>
+        <div class="title">CRE Investor & Developer</div>
+        <div class="desc">Developed and invested in multiple retail centers and land deals across the DFW Metroplex and beyond. Nearly two decades of hands-on commercial real estate experience.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="date">2009 to 2010</div>
+        <div class="title">President, Texas Sign Association</div>
+        <div class="desc">Served on the Board of Directors for several years, championing the sign industry and small business advocacy across Texas.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section section-dark">
+    <p class="section-label">Get in Touch</p>
+    <h2 class="section-header lg">Let's Talk</h2>
+    <div class="contact-inner">
+      <div class="contact-left">
+        <p class="contact-intro">Whether you're evaluating a deal, exploring a partnership, or looking for a strategic advisor, reach out to start a conversation.</p>
+        <div class="contact-details">
+          <p><span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></span><a href="https://www.google.com/maps?q=212+South+Elm+Street,+Denton,+TX+76201" target="_blank" rel="noopener noreferrer">212 South Elm Street, Denton, TX 76201</a></p>
+          <p><span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span><a href="mailto:admin@neonventures.biz">admin@neonventures.biz</a></p>
+          <p><span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></span><a href="https://www.linkedin.com/in/terrybrockett" target="_blank" rel="noopener noreferrer">LinkedIn: Terry Brockett</a></p>
+          <p><span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></span><a href="https://www.linkedin.com/company/111863066" target="_blank" rel="noopener noreferrer">LinkedIn: Neon Ventures</a></p>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required placeholder="Your name">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="your@email.com">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="Subject">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required placeholder="Your message"></textarea>
+        <button type="submit" class="btn-submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 Neon Ventures. All rights reserved.</p>
+    <p class="address">212 South Elm Street, Denton, TX 76201</p>
+  </footer>
+
+  <script>
+    (function() {
+      var navbar = document.getElementById('navbar');
+      var navLinks = document.getElementById('navLinks');
+      var navToggle = document.getElementById('navToggle');
+      function onScroll() {
+        navbar.classList.toggle('scrolled', window.scrollY > 20);
+      }
+      window.addEventListener('scroll', onScroll);
+      onScroll();
+
+      navToggle.addEventListener('click', function() {
+        navLinks.classList.toggle('open');
+      });
+
+      document.querySelectorAll('.nav-links a').forEach(function(a) {
+        a.addEventListener('click', function() {
+          if (window.innerWidth <= 768) navLinks.classList.remove('open');
+        });
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          var href = this.getAttribute('href');
+          if (href === '#') return;
+          e.preventDefault();
+          var target = document.querySelector(href);
+          if (target) {
+            var top = target.getBoundingClientRect().top + window.pageYOffset - navbar.offsetHeight;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+          }
+        });
+      });
+
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var form = this;
+        var data = new FormData(form);
+        fetch('https://formspree.io/f/admin@neonventures.biz', {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        }).then(function(response) {
+          if (response.ok) {
+            alert('Thank you for your message. We will be in touch soon.');
+            form.reset();
+          } else {
+            alert('Something went wrong. Please email us directly at admin@neonventures.biz.');
+          }
+        }).catch(function() {
+          alert('Something went wrong. Please email us directly at admin@neonventures.biz.');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

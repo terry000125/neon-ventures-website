@@ -297,6 +297,88 @@
     .footer { background: var(--dark-deep); padding: 40px 24px; text-align: center; }
     .footer p { font-size: 14px; color: #666; }
     .footer .address { font-size: 13px; color: #444; margin-top: 8px; }
+
+    /* ----- LENDING PROGRAM ----- */
+    @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap');
+
+    #lending-program {
+      background: #060810;
+      font-family: 'Barlow', 'Helvetica Neue', sans-serif;
+      color: #fff;
+      padding: 100px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    #lending-program .lp-glow-1 {
+      position: absolute; top: -200px; right: -200px; width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(30,60,120,0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    #lending-program .lp-glow-2 {
+      position: absolute; bottom: -2px; left: -100px; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(245,166,35,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .lp-inner { max-width: 1100px; margin: 0 auto; position: relative; }
+    .lp-header { margin-bottom: 64px; }
+    .lp-eyebrow {
+      font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+      color: #F5A623; margin-bottom: 16px; font-weight: 600;
+    }
+    .lp-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(36px, 5vw, 56px); font-weight: 700;
+      line-height: 1.1; margin: 0 0 20px; letter-spacing: -0.5px;
+    }
+    .lp-rule { width: 60px; height: 3px; background: linear-gradient(90deg, #F5A623, #E8520A); border-radius: 2px; }
+    .lp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    @media (max-width: 768px) { .lp-grid { grid-template-columns: 1fr; } }
+    .lp-col-label {
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: #8899AA; margin-bottom: 28px; font-weight: 600;
+    }
+    .lp-params-table {
+      border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;
+      overflow: hidden; background: rgba(255,255,255,0.03); backdrop-filter: blur(10px);
+    }
+    .lp-param-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 28px; border-bottom: 1px solid rgba(255,255,255,0.06); gap: 16px;
+    }
+    .lp-param-row:last-child { border-bottom: none; }
+    .lp-param-label {
+      font-size: 13px; color: #7A8DA0; text-transform: uppercase;
+      letter-spacing: 1px; font-weight: 600; white-space: nowrap;
+    }
+    .lp-param-value { font-size: 15px; color: #E8EFF7; font-weight: 500; text-align: right; }
+    .lp-brokers-badge {
+      margin-top: 20px; display: inline-flex; align-items: center; gap: 10px;
+      padding: 12px 20px; border: 1px solid rgba(245,166,35,0.3);
+      border-radius: 10px; background: rgba(245,166,35,0.06);
+    }
+    .lp-brokers-badge span { font-size: 13px; color: #F5A623; font-weight: 600; letter-spacing: 0.5px; }
+    .lp-property-cards { display: flex; flex-direction: column; gap: 16px; }
+    .lp-property-card {
+      display: flex; align-items: center; gap: 20px; padding: 24px;
+      border: 1px solid rgba(255,255,255,0.07); border-radius: 14px;
+      background: rgba(255,255,255,0.02);
+      transition: border-color 0.25s ease, background 0.25s ease; cursor: default;
+    }
+    .lp-property-card:hover { border-color: rgba(245,166,35,0.4); background: rgba(245,166,35,0.05); }
+    .lp-property-icon { flex-shrink: 0; width: 48px; height: 48px; }
+    .lp-property-name { font-size: 16px; font-weight: 600; color: #E8EFF7; margin-bottom: 4px; }
+    .lp-property-desc { font-size: 14px; color: #6A7D90; line-height: 1.5; }
+    .lp-cta-wrap { margin-top: 32px; }
+    .lp-cta-btn {
+      display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px;
+      background: linear-gradient(135deg, #F5A623, #E8520A); color: #fff;
+      font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 15px;
+      letter-spacing: 0.5px; border-radius: 10px; text-decoration: none;
+      box-shadow: 0 8px 32px rgba(245,166,35,0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease; border: none; cursor: pointer;
+    }
+    .lp-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(245,166,35,0.45); color: #fff; }
+    .lp-cta-tagline { margin-top: 12px; font-size: 13px; color: #4A5D70; }
   </style>
 </head>
 <body>
@@ -308,6 +390,7 @@
       <a href="#hero">Home</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#about">About</a>
+      <a href="#lending-program">Loan Program</a>
       <a href="#contact">Contact</a>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Menu">
@@ -550,6 +633,134 @@
         <div class="date">2009 to 2010</div>
         <div class="title">President, Texas Sign Association</div>
         <div class="desc">Served on the Board of Directors for several years, championing the sign industry and small business advocacy across Texas.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="lending-program">
+    <div class="lp-glow-1"></div>
+    <div class="lp-glow-2"></div>
+    <div class="lp-inner">
+      <div class="lp-header">
+        <p class="lp-eyebrow">Private Lending</p>
+        <h2 class="lp-title">Lending Program</h2>
+        <div class="lp-rule"></div>
+      </div>
+      <div class="lp-grid">
+        <div>
+          <p class="lp-col-label">Lending Parameters</p>
+          <div class="lp-params-table">
+            <div class="lp-param-row">
+              <span class="lp-param-label">Loan Amounts</span>
+              <span class="lp-param-value">$500,000 &ndash; $5,000,000</span>
+            </div>
+            <div class="lp-param-row">
+              <span class="lp-param-label">Loan to Value</span>
+              <span class="lp-param-value">Up to 60%</span>
+            </div>
+            <div class="lp-param-row">
+              <span class="lp-param-label">Rate</span>
+              <span class="lp-param-value">12% &ndash; 14%</span>
+            </div>
+            <div class="lp-param-row">
+              <span class="lp-param-label">Term</span>
+              <span class="lp-param-value">12 months + extension options</span>
+            </div>
+            <div class="lp-param-row">
+              <span class="lp-param-label">Position</span>
+              <span class="lp-param-value">First Lien Only</span>
+            </div>
+            <div class="lp-param-row">
+              <span class="lp-param-label">Lending Area</span>
+              <span class="lp-param-value">Texas</span>
+            </div>
+          </div>
+          <div class="lp-brokers-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2Z" stroke="#F5A623" stroke-width="1.5" fill="rgba(245,166,35,0.1)" stroke-linejoin="round"/>
+              <path d="M9 12l2 2 4-4" stroke="#F5A623" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Brokers Protected</span>
+          </div>
+        </div>
+        <div>
+          <p class="lp-col-label">Property Types</p>
+          <div class="lp-property-cards">
+            <div class="lp-property-card">
+              <svg class="lp-property-icon" viewBox="0 0 48 48" fill="none">
+                <defs><linearGradient id="lp-g1" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse"><stop stop-color="#F5A623"/><stop offset="1" stop-color="#E8520A"/></linearGradient></defs>
+                <path d="M4 36L16 20L24 28L32 16L44 36H4Z" stroke="url(#lp-g1)" stroke-width="2" stroke-linejoin="round" fill="none"/>
+                <circle cx="38" cy="10" r="5" stroke="url(#lp-g1)" stroke-width="2" fill="none"/>
+              </svg>
+              <div>
+                <div class="lp-property-name">Raw Land</div>
+                <div class="lp-property-desc">Entitled and unentitled land acquisitions with a clear path to development.</div>
+              </div>
+            </div>
+            <div class="lp-property-card">
+              <svg class="lp-property-icon" viewBox="0 0 48 48" fill="none">
+                <defs><linearGradient id="lp-g2" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse"><stop stop-color="#F5A623"/><stop offset="1" stop-color="#E8520A"/></linearGradient></defs>
+                <rect x="4" y="28" width="12" height="14" stroke="url(#lp-g2)" stroke-width="2" fill="none"/>
+                <rect x="18" y="22" width="12" height="20" stroke="url(#lp-g2)" stroke-width="2" fill="none"/>
+                <rect x="32" y="32" width="12" height="10" stroke="url(#lp-g2)" stroke-width="2" fill="none"/>
+                <path d="M4 44H44" stroke="url(#lp-g2)" stroke-width="2"/>
+              </svg>
+              <div>
+                <div class="lp-property-name">Residential Lot Development</div>
+                <div class="lp-property-desc">Horizontal development of single-family lots, platted subdivisions, and planned communities.</div>
+              </div>
+            </div>
+            <div class="lp-property-card">
+              <svg class="lp-property-icon" viewBox="0 0 48 48" fill="none">
+                <defs><linearGradient id="lp-g3" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse"><stop stop-color="#F5A623"/><stop offset="1" stop-color="#E8520A"/></linearGradient></defs>
+                <rect x="8" y="16" width="32" height="28" stroke="url(#lp-g3)" stroke-width="2" fill="none"/>
+                <path d="M16 16V10H32V16" stroke="url(#lp-g3)" stroke-width="2" fill="none"/>
+                <line x1="8" y1="28" x2="40" y2="28" stroke="url(#lp-g3)" stroke-width="2"/>
+                <line x1="24" y1="16" x2="24" y2="44" stroke="url(#lp-g3)" stroke-width="2"/>
+              </svg>
+              <div>
+                <div class="lp-property-name">Commercial Land</div>
+                <div class="lp-property-desc">Commercially zoned land for retail, industrial, office, and mixed-use development.</div>
+              </div>
+            </div>
+            <div class="lp-property-card">
+              <svg class="lp-property-icon" viewBox="0 0 48 48" fill="none">
+                <defs><linearGradient id="lp-g4" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse"><stop stop-color="#F5A623"/><stop offset="1" stop-color="#E8520A"/></linearGradient></defs>
+                <rect x="4" y="20" width="24" height="24" stroke="url(#lp-g4)" stroke-width="2" fill="none"/>
+                <rect x="28" y="26" width="16" height="18" stroke="url(#lp-g4)" stroke-width="2" fill="none"/>
+                <path d="M4 20l12-8 12 8" stroke="url(#lp-g4)" stroke-width="2" stroke-linejoin="round" fill="none"/>
+                <rect x="11" y="30" width="6" height="14" stroke="url(#lp-g4)" stroke-width="1.5" fill="none"/>
+              </svg>
+              <div>
+                <div class="lp-property-name">Retail &amp; Industrial</div>
+                <div class="lp-property-desc">Acquisition and development of retail centers, warehouses, flex space, and light industrial properties.</div>
+              </div>
+            </div>
+            <div class="lp-property-card">
+              <svg class="lp-property-icon" viewBox="0 0 48 48" fill="none">
+                <defs><linearGradient id="lp-g5" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse"><stop stop-color="#F5A623"/><stop offset="1" stop-color="#E8520A"/></linearGradient></defs>
+                <rect x="4" y="28" width="18" height="16" stroke="url(#lp-g5)" stroke-width="2" fill="none"/>
+                <rect x="26" y="14" width="18" height="30" stroke="url(#lp-g5)" stroke-width="2" fill="none"/>
+                <line x1="30" y1="22" x2="40" y2="22" stroke="url(#lp-g5)" stroke-width="1.5"/>
+                <line x1="30" y1="30" x2="40" y2="30" stroke="url(#lp-g5)" stroke-width="1.5"/>
+                <rect x="9" y="34" width="6" height="10" stroke="url(#lp-g5)" stroke-width="1.5" fill="none"/>
+              </svg>
+              <div>
+                <div class="lp-property-name">Mixed Use</div>
+                <div class="lp-property-desc">Ground-floor commercial combined with residential or office above, in urban infill and suburban growth corridors.</div>
+              </div>
+            </div>
+          </div>
+          <div class="lp-cta-wrap">
+            <a href="#contact" class="lp-cta-btn">
+              Submit a Loan Request
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <p class="lp-cta-tagline">Direct lender. Fast decisions. No committee delays.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

@@ -31,14 +31,11 @@
         });
       });
 
-      var contactForm = document.getElementById('contactForm');
-      if (contactForm) contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        var name = document.getElementById('name').value;
-        var email = document.getElementById('email').value;
-        var subject = document.getElementById('subject').value || 'Website Inquiry';
-        var message = document.getElementById('message').value;
-        var body = 'Name: ' + name + '\nEmail: ' + email + '\n\n' + message;
-        window.location.href = 'mailto:admin@neonventures.biz?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-      });
+      var params = new URLSearchParams(window.location.search);
+      if (params.get('thanks') === '1') {
+        var contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+          contactForm.innerHTML = '<p style="font-size:18px;color:var(--heading-dark);text-align:center;padding:40px 0;">Thank you! Your message has been sent. We\'ll be in touch soon.</p>';
+        }
+      }
     })();

@@ -320,8 +320,6 @@
     .footer .address { font-size: 13px; color: #444; margin-top: 8px; }
 
     /* ----- LENDING PROGRAM ----- */
-    @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap');
-
     #lending-program {
       background: #060810;
       font-family: 'Barlow', 'Helvetica Neue', sans-serif;
